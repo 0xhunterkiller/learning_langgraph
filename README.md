@@ -33,3 +33,22 @@ AI: As an AI, I do not have access to personal information. Therefore, I do not 
 Enter: q
 Goodbye
 ```
+
+### Output from ai2_short_term_memory.py
+
+```
+Enter: Hi                   
+
+AI: Hi there! How can I help you today?
+====================
+Enter: Hi, I am Steve.
+
+AI: Hi Steve, nice to meet you! How can I help you today, Steve?
+====================
+Enter: Who am I?
+
+AI: You are Steve, according to what you just told me. I don't have access to any personal information about you beyond that.
+====================
+Enter: q
+Goodbye
+```
