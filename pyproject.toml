@@ -5,8 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "langchain-google-genai>=2.1.8",
     "langgraph>=0.6.2",
     "nest-asyncio>=1.6.0",
     "notebook>=7.4.4",
     "pyppeteer>=2.0.0",
+    "python-dotenv>=1.1.1",
 ]
