@@ -189,3 +189,94 @@ The sum of 3 and 4 is 7, and the sum of 7 and 8 is 15.
 Enter: q
 Goodbye
 ```
+
+### python ai5_hitl.py
+
+```
+user@host:~/.../learning_langgraph$ python ai5_hitl.py 
+========== DRAFT STARTED ==========
+What would you like to create? Write an email to Ajay telling him that I wont be able to attend today's meeting.
+
+ AI: 
+   USING TOOLS: ['update_content']
+===== CONTENT =====
+Hi Ajay,
+
+I am writing to inform you that I won't be able to attend today's meeting.
+
+Regards,
+[Your Name]
+===== CONTENT =====
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+
+ What would you like to do with the document? This is because I am not feeling well.
+
+ AI: 
+   USING TOOLS: ['update_content']
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+===== CONTENT =====
+Hi Ajay,
+
+I am writing to inform you that I won't be able to attend today's meeting because I am not feeling well.
+
+Regards,
+[Your Name]
+===== CONTENT =====
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+
+ What would you like to do with the document? His task for today will be to fix the bug in orders-service version 8.0.1, and to create the presentation for the next quarterly meet.
+
+ AI: 
+   USING TOOLS: ['update_content']
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+===== CONTENT =====
+Hi Ajay,
+
+I am writing to inform you that I won't be able to attend today's meeting because I am not feeling well. His task for today will be to fix the bug in orders-service version 8.0.1, and to create the presentation for the next quarterly meet.
+
+Regards,
+[Your Name]
+===== CONTENT =====
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+
+ What would you like to do with the document? My name is Saai Sudarsanan.
+
+ AI: 
+   USING TOOLS: ['update_content']
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+===== CONTENT =====
+Hi Ajay,
+
+I am writing to inform you that I won't be able to attend today's meeting because I am not feeling well. His task for today will be to fix the bug in orders-service version 8.0.1, and to create the presentation for the next quarterly meet.
+
+Regards,
+Saai Sudarsanan
+===== CONTENT =====
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+
+ What would you like to do with the document? Finish it
+
+ AI: 
+   USING TOOLS: ['save_content']
+
+   TOOL RESULT: Document has been successfully modified. Your changes were not saved.
+===== CONTENT =====
+Hi Ajay,
+
+I am writing to inform you that I won't be able to attend today's meeting because I am not feeling well. Your task for today will be to fix the bug in orders-service version 8.0.1, and to create the presentation for the next quarterly meet.
+
+Regards,
+Saai Sudarsanan
+===== CONTENT =====
+
+   TOOL RESULT: Document was successfully saved to 'email_to_ajay.txt'. MD5SUM: 5d8380a19b419f2029de96df6cd0e428
+
+========== DRAFT FINISHED ==========
+```
