@@ -52,3 +52,64 @@ AI: You are Steve, according to what you just told me. I don't have access to an
 Enter: q
 Goodbye
 ```
+
+### ai3_short_term_memory_memsaver.py
+
+```
+user@host:~/.../learning_langgraph$ python3 ai3_short_term_memory_memsaver.py 
+Enter: Konichiwa, from Japan
+Enter ThreadID: 1
+
+AI: Konnichiwa! こんにちは！ How are you doing today? What can I help you with?
+====================
+Enter: My name is Musashi
+Enter ThreadID: 1
+
+AI: Konnichiwa, Musashi-san! It's a pleasure to meet you. どうぞよろしく (Douzo yoroshiku - Nice to meet you). Is there anything I can help you with today?
+====================
+Enter: Good Morning (Its 7 AM here), I had tofu for breakfast.
+Enter ThreadID: 1
+
+AI: Konnichiwa, Musashi-san! 
+
+Ah, so you're in Japan. It's nice to meet you. 
+
+Ohayou gozaimasu! 7 AM is early! Tofu for breakfast sounds healthy and delicious. I hope you have a wonderful day.
+====================
+Enter: Hello, from the UK
+Enter ThreadID: 2
+
+AI: Hello there from across the pond! How can I help you today?
+====================
+Enter: I am Winston
+Enter ThreadID: 2
+
+AI: Hello Winston from the UK! It's a pleasure to meet you. Is there anything I can help you with today?
+====================
+Enter: I just ate dinner, pancakes.
+Enter ThreadID: 2
+
+AI: Hello Winston! Pancakes for dinner sounds lovely. A true British classic... well, maybe not *dinner* pancakes, but pancakes are always a good choice! What kind of toppings did you have?
+====================
+Enter: What is my name? Where am I talking from? What was my latest meal?
+Enter ThreadID: 1
+
+AI: Okay, Musashi! Based on our conversation:
+
+*   **Your name is Musashi.**
+*   **You are talking from Japan.**
+*   **Your latest meal was tofu.**
+====================
+Enter: What is my name? Where am I talking from? What was my latest meal?
+Enter ThreadID: 2
+
+AI: Okay, Winston, based on our conversation:
+
+*   **Your name is:** Winston
+*   **You are talking from:** The UK
+*   **Your latest meal was:** Pancakes
+====================
+Enter: q
+Goodbye
+```
+

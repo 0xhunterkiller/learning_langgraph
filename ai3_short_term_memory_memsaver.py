@@ -1,24 +1,27 @@
 # Import Dependencies
 from dotenv import load_dotenv
-from typing import TypedDict, List, Union
-from langchain_core.messages import HumanMessage, AIMessage
+from typing import TypedDict, Annotated
+from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
+from langgraph.checkpoint.memory import MemorySaver
 
 # Load Environment Variables
 load_dotenv()
 
+# Setup the Memory Saver
+memory = MemorySaver() # in-memory checkpointer (it saves the conversation history in memory)
+
 # Define Agent State Schema to be a list of Human Messages
 class AgentState(TypedDict):
-    messages: List[Union[HumanMessage, AIMessage]]
+    messages: Annotated[list, add_messages]
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
 def process(state: AgentState) -> AgentState:
     """"This node will solve the request you input"""
     response = llm.invoke(state['messages'])
-    state["messages"].append(AIMessage(content=response.content))
     print(f"\nAI: {response.content}")
     print("="*20)
     return state
@@ -28,18 +31,19 @@ graph.add_node("process", process)
 graph.add_edge(START, "process")
 graph.add_edge("process",END)
 
-agent = graph.compile()
-
-conversation_history = [] # the conversation history is saved as a simple list
+agent = graph.compile(checkpointer=memory)
 
 user_input = input("Enter: ")
 while True:
-    conversation_history.append(HumanMessage(content=user_input))
-    result = agent.invoke({"messages": conversation_history})
-    conversation_history = result["messages"]
+    config = {
+        "configurable": {"thread_id": input("Enter ThreadID: ")}
+    }
+    result = agent.invoke({"messages": [HumanMessage(content=user_input)]}, config=config)
     user_input = input("Enter: ")
     if user_input.lower().strip() == "q":
         print("Goodbye")
         break
 
-# This bot has memory, but doesn't remember after the while loop is terminated, because, the state is lost
+# Memory works in different threads, so that we can simulate multiple users talking,
+# Each thread maintains its own set of memories, that is exclusive of other threads
+# Think of it like different conversations in ChatGPT, where ChatGPT cannot access memories from a different conversation
