@@ -6,6 +6,22 @@ The author of the course also uploaded the ppts on github: [Github: iamvaibhavme
 
 This is the video on FreeCodeCamp: [LangGraph Complete Course for Beginners – Complex AI Agents with Python](https://www.youtube.com/watch?v=jGg_1h0qzaM)
 
+## To Setup RAG
+
+###  Ollama
+
+Install [Ollama](https://ollama.com/download)
+
+Run,
+
+```
+ollama pull gemma3:1b         # or a better model if your computer supports it
+ollama pull mxbai-embed-large # for embeddings, you can use whatever you choose
+```
+
+---
+
+
 ## Outputs
 
 ### Output from ai1_simple_bot.py
@@ -279,4 +295,73 @@ Saai Sudarsanan
    TOOL RESULT: Document was successfully saved to 'email_to_ajay.txt'. MD5SUM: 5d8380a19b419f2029de96df6cd0e428
 
 ========== DRAFT FINISHED ==========
+```
+
+### python ai6_rag_agent.py
+
+```
+
+=== RAG AGENT===
+
+What is your question: Who is Miyamoto Musashi?
+Calling Tool: retriever_tool with query: Who is Miyamoto Musashi?
+Result length: 4401
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+Miyamoto Musashi, born as Miyamoto Masana (later commonly known as Miyamoto Musashi, with the artistic name Niten), was a Japanese samurai and swordsman. He was born in 1584 in either the Mimasaka or Harima Province and died on June 13, 1645, in Higo Province at around 61 years old. Musashi was the creator of Niten Ichi-ryū, a dual-blade system, and is known for his undefeated duel record, claiming over 60 duels without a loss. [Document 1]
+
+What is your question: tell me about the rings, what are they?
+Calling Tool: retriever_tool with query: What are the five rings?
+Result length: 4836
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+The Five Rings are:
+
+*   **Earth:** Focuses on grounding, stability, and fundamental skills in martial arts, strategy, and life philosophy. It emphasizes the importance of a solid foundation.
+*   **Wind:** About understanding others by analyzing different martial arts schools and strategies. It highlights the importance of knowing your opponent.
+*   **Fire:** Deals with action, controlled aggression, and direct conflict, focusing on the execution of skills and strategies in battle.
+*   **Water:** Centers on adaptability, teaching how to be flexible and responsive like water, adjusting techniques and strategies fluidly in different situations.
+*   **Void:** Represents a realm beyond technique, thought, and self, signifying pure awareness and transcendence.
+
+What is your question: Which is the ring that is the hardest to attain?
+Calling Tool: retriever_tool with query: Which ring is hardest to attain?
+Result length: 4783
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+I cannot answer which ring is the hardest to attain with the information I have. The documents describe what each of the rings are about, but not which one is the most difficult to master.
+
+What is your question: is there an order to the rings?
+Calling Tool: retriever_tool with query: What is the order of the books in the 5 rings?
+Result length: 4836
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+Yes, there is a specific order to the books in *The Book of Five Rings*. Miyamoto Musashi presents them in the following sequence:
+
+1.  **Earth Book:** Focuses on fundamentals, strategy, and establishing a solid foundation.
+2.  **Water Book:** Deals with adaptability, flexibility, and flowing like water in combat.
+3.  **Fire Book:** Covers action, aggression, and the intensity of battle.
+4.  **Wind Book:** Explores understanding others by analyzing different martial arts schools and strategies.
+5.  **Void Book:** Discusses a higher, more abstract understanding, transcending technique and thought.
+
+What is your question: Who was masashi's student?
+Calling Tool: retriever_tool with query: Who was Musashi's student?
+Result length: 4357
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+I don't have information about Musashi's direct students in the materials I have access to. The documents mention his creation of the Niten Ichi-ryū style and his advising of retainers, but not any named students.
+
+What is your question: Tell me the need for the wind ring?
+Calling Tool: retriever_tool with query: purpose of the wind book
+Result length: 4854
+Tools Execution Complete. Back to the model!
+
+=== ANSWER ===
+The Wind Book is needed to understand others, specifically to critique and analyze other schools of martial arts and strategy. It provides perspective outside of your own style and gives insights into flaws and gaps in others' systems, as well as a tactical understanding of how opponents think and act. According to the text, you cannot lead or dominate if you only understand yourself. "Wind is learning from others to reinforce your own path" (Document 1).
+
+What is your question: exit    
 ```

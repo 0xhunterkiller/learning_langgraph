@@ -1,7 +1,7 @@
 # Import Dependencies
 from dotenv import load_dotenv
 from typing import TypedDict, Annotated, Sequence
-from langchain_core.messages import BaseMessage, ToolMessage, SystemMessage, AIMessage, HumanMessage
+from langchain_core.messages import BaseMessage, ToolMessage, SystemMessage, HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.tools import tool
 from langgraph.graph import StateGraph, START, END
