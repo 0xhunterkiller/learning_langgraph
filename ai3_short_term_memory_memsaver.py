@@ -13,7 +13,6 @@ load_dotenv()
 # Setup the Memory Saver
 memory = MemorySaver() # in-memory checkpointer (it saves the conversation history in memory)
 
-# Define Agent State Schema to be a list of Human Messages
 class AgentState(TypedDict):
     messages: Annotated[list, add_messages]
 
@@ -31,14 +30,14 @@ graph.add_node("process", process)
 graph.add_edge(START, "process")
 graph.add_edge("process",END)
 
-agent = graph.compile(checkpointer=memory)
+app = graph.compile(checkpointer=memory)
 
 user_input = input("Enter: ")
 while True:
     config = {
         "configurable": {"thread_id": input("Enter ThreadID: ")}
     }
-    result = agent.invoke({"messages": [HumanMessage(content=user_input)]}, config=config)
+    result = app.invoke({"messages": [HumanMessage(content=user_input)]}, config=config)
     user_input = input("Enter: ")
     if user_input.lower().strip() == "q":
         print("Goodbye")

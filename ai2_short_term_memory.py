@@ -9,7 +9,6 @@ from langgraph.graph.message import add_messages
 # Load Environment Variables
 load_dotenv()
 
-# Define Agent State Schema to be a list of Human Messages
 class AgentState(TypedDict):
     messages: List[Union[HumanMessage, AIMessage]]
 
@@ -28,14 +27,14 @@ graph.add_node("process", process)
 graph.add_edge(START, "process")
 graph.add_edge("process",END)
 
-agent = graph.compile()
+app = graph.compile()
 
 conversation_history = [] # the conversation history is saved as a simple list
 
 user_input = input("Enter: ")
 while True:
     conversation_history.append(HumanMessage(content=user_input))
-    result = agent.invoke({"messages": conversation_history})
+    result = app.invoke({"messages": conversation_history})
     conversation_history = result["messages"]
     user_input = input("Enter: ")
     if user_input.lower().strip() == "q":
